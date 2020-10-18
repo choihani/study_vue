@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <xmp>
+        jQueyry를 사용하여 "Hello, jQery!!!!" 를 출력한다.
+    </xmp>
+    <hr />
+
+    <div id="app">
+        <p>{{message}}</p>
+        <button>click me</button>
+        <!-- 여기에  Hello, jQery!!!! 출력 -->
+    </div>
+    <script src="../jquery-3.4.1.js"></script>
+    <script>
+        $('#app>p').text("Hello, JQuery");
+        $("#app>button").on("click", function (event) {
+            alert("hi");
+        });
+    </script>
+</body>
+
+</html>
+
+<!-- vue 플러그인 임포트-->
