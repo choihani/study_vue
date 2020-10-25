@@ -39,6 +39,7 @@
                 </tr>
             </tbody>
         </table>
+        <button v-on:click="clickBtn">추가</button>
     </div>
 
 </body>
@@ -46,4 +47,54 @@
 </html>
 
 <!-- vue 스크립트 플러그인 임포트   -->
-
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    //import axios from "axios";
+
+    new Vue({
+        /* edtmc^2w */
+        el: "#app",
+        data: {
+            contacts: [
+                {
+                    name: "설현",
+                    tel: "010-3456-8200",
+                    address: "서울",
+                },
+                {
+                    name: "수지",
+                    tel: "010-1234-5678",
+                    address: "안양",
+                },
+            ],
+        },
+        //template: ``,
+        methods: {
+            clickBtn: function (event) {
+                Vue.set(
+                    this.$data.contacts,
+                    [this.$data.contacts.length],
+                    {
+                        name: "설현",
+                        tel: "010-3456-8200",
+                        address: "서울",
+                    }
+                );
+            }
+        },
+        components: {},
+        computed: {
+
+        },
+        watch: {
+
+        },
+        mounted: function () {
+            console.log("mounted");
+        },
+        updated: function () {
+            console.log("updated");
+        },
+    });
+
+</script>

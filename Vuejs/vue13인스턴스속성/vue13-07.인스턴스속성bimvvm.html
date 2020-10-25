@@ -37,7 +37,7 @@
 <!-- vue 스크립트 플러그인 임포트   -->
 <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
 <script>
-    new Vue({
+    var vm = new Vue({ //외부에서 접근하려면 인스턴스의 이름으로 접근해야함
         el: "#my",
         data: {
             message: "change message at mounted!!",
@@ -49,5 +49,15 @@
             }
         },
     });
+
+    window.setTimeout(function () {
+        vm.$data.message = "change message after 3 seconds!!!";
+    }, 3000) //3000ms = 3s
+
+    window.setTimeout(function () {
+        vm.$data.message = "change message after 5 seconds!!!";
+        vm.$data["message"] = "change message after 5 seconds!!!"; //위와 같이 실행하여도 이런식으로 바뀌어서 실행됨
+        Vue.set(vm.$data, "message", "change message after 5 seconds!!!") //따라서 두번째 인자값을 ""으로 넣어야됨
+    }, 5000) //5000ms = 5s
 
 </script>

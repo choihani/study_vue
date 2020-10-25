@@ -35,11 +35,46 @@
     <div id="app">
         {{ message }}
         <!-- 버튼 기능 추가-->
-        
+        <button v-on:click="btnClick">이벤트핸들러</button>
     </div>
 </body>
 
 </html>
 
 <!-- vue 스크립트 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    //import axios from "axios";
 
+    //import axios from "axios";
+
+    new Vue({
+        /* edtmc^2w */
+        el: "#app",
+        data: {
+            message: null,
+        },
+        //template: ``,
+        methods: {
+            btnClick: function (event) {
+                //console.log("값이 바뀜");
+                const dt = new Date().toTimeString();
+                Vue.set(this.$data, "message", "choi : " + dt);
+            },
+        },
+        components: {},
+        computed: {
+
+        },
+        watch: {
+
+        },
+        mounted: function () {
+            console.log("mounted");
+            this.$data.message = " Change a data at mounted";
+        },
+        updated: function () {
+            console.log("updated");
+        },
+    });
+</script>
